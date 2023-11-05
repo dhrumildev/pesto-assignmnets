@@ -234,41 +234,41 @@ function mazePathMain(numRows, numCols) {
 function solveNQueens(N) {
     const result = [];
     const board = new Array(N).fill(0).map(() => new Array(N).fill('.'));
-  
+
     function isSafe(row, col) {
-      for (let i = 0; i < row; i++) {
-        if (board[i][col] === 'Q') return false;
-        if (col - (row - i) >= 0 && board[i][col - (row - i)] === 'Q') return false;
-        if (col + (row - i) < N && board[i][col + (row - i)] === 'Q') return false;
-      }
-      return true;
+        for (let i = 0; i < row; i++) {
+            if (board[i][col] === 'Q') return false;
+            if (col - (row - i) >= 0 && board[i][col - (row - i)] === 'Q') return false;
+            if (col + (row - i) < N && board[i][col + (row - i)] === 'Q') return false;
+        }
+        return true;
     }
-  
+
     function placeQueens(row) {
-      if (row === N) {
-        const solution = [];
-        for (let i = 0; i < N; i++) {
-          solution.push([i, board[i].indexOf('Q')]);
+        if (row === N) {
+            const solution = [];
+            for (let i = 0; i < N; i++) {
+                solution.push([i, board[i].indexOf('Q')]);
+            }
+            result.push(solution);
+            return;
         }
-        result.push(solution);
-        return;
-      }
-  
-      for (let col = 0; col < N; col++) {
-        if (isSafe(row, col)) {
-          board[row][col] = 'Q';
-          placeQueens(row + 1);
-          board[row][col] = '.';
+
+        for (let col = 0; col < N; col++) {
+            if (isSafe(row, col)) {
+                board[row][col] = 'Q';
+                placeQueens(row + 1);
+                board[row][col] = '.';
+            }
         }
-      }
     }
-  
+
     placeQueens(0);
     return result;
-  }
-  
-  const N = 4; // Change N to the desired size of the chessboard
-  const solutions = solveNQueens(N);
+}
+
+const N = 4; // Change N to the desired size of the chessboard
+const solutions = solveNQueens(N);
 //   console.log(solutions);
 
 
@@ -283,3 +283,31 @@ function solveNQueens(N) {
 // To perform a flood fill, consider the starting pixel, plus any pixels connected 4-directionally to the starting pixel of the same color as the starting pixel, plus any pixels connected 4-directionally to those pixels (also with the same color), and so on. Replace the color of all of the aforementioned pixels with color.
 
 
+const floodFill = function (image, sr, sc, color) {
+
+
+    if (image[sr][sc] == color) return image;
+
+    fill(image, sr, sc, color, image[sr][sc]);
+    return image;
+
+}
+const fill = function (image, sr, sc, color, cur) {
+
+    // If sr is less than 0 or greater equals to the length of image or, sc is less than 0 or greater equals to the length of image[0]
+
+    if (sr < 0 || sr >= image.length || sc < 0 || sc >= image[0].length) return;
+
+    // When image[sr][sc] is not equal to previous color
+    if (cur != image[sr][sc]) return;
+
+    // Updating image[sr][sc] as a color
+    image[sr][sc] = color;
+    // Make four recursive calls to the function with (sr-1, sc), (sr+1, sc), (sr, sc-1) and (sr, sc+1)...
+    fill(image, sr - 1, sc, color, cur);
+    fill(image, sr + 1, sc, color, cur);
+    fill(image, sr, sc - 1, color, cur);
+    fill(image, sr, sc + 1, color, cur);
+};
+
+console.log(floodFill([[1, 1, 1], [1, 1, 0], [1, 0, 1]], 1, 1, 2))
