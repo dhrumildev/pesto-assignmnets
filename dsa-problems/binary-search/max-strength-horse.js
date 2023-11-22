@@ -1,3 +1,7 @@
+// Problem Statement:
+// You are given a list of N horses, and each horse has a certain strength value. You need to find the horse with the maximum strength value. However, you can only compare two horses at a time in a race. You can organize a maximum of K races to determine the horse with the maximum strength value. Write a program to find the horse with the maximum strength value using binary search.
+
+
 function findMaxStrengthHorse(horseStrengths, k) {
     let left = 0;
     let right = horseStrengths.length - 1;
