@@ -1,3 +1,6 @@
+/**
+ * Convert a Binary Search Tree (BST) to a sorted linked list.
+ */
 class TreeNode {
     constructor(value) {
       this.value = value;
