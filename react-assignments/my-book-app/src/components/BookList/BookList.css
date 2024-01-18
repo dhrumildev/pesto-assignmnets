@@ -1,0 +1,11 @@
+.book-list-container {
+    max-width: 600px;
+    /* Adjust the max-width based on your preference */
+    margin: 0 auto;
+    /* Center the container horizontally */
+}
+
+.book-list {
+    text-align: left;
+    /* Align the book list to the left */
+}
