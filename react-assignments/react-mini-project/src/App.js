@@ -8,10 +8,11 @@ const AgeCalculator = () => {
 
   const calculateAge = () => {
     const today = new Date();
+
     const birthDate = new Date(birthdate);
 
     const ageInMilliseconds = today - birthDate;
-    const ageInYears = Math.floor(ageInMilliseconds / (365.25 * 24 * 60 * 60 * 1000));
+    const ageInYears = (birthdate && birthdate > new Date()) ? `Your age is: ${Math.floor(ageInMilliseconds / (365.25 * 24 * 60 * 60 * 1000))} years` : "Please enter a valid date";
 
     setAge(ageInYears);
   };
@@ -29,7 +30,7 @@ const AgeCalculator = () => {
         />
       </div>
       <button onClick={calculateAge}>Calculate Age</button>
-      {age && <p>Your age is: {age} years</p>}
+      {age && <p>{age}</p>}
     </div>
   );
 };
