@@ -9,3 +9,13 @@
     text-align: left;
     /* Align the book list to the left */
 }
+
+.light-theme {
+    background-color: #fff !important;
+    color: #333 !important;
+}
+
+.dark-theme {
+    background-color: #333 !important;
+    color: #fff !important;
+}
