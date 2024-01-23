@@ -4,33 +4,51 @@ import './App.css';
 
 const AgeCalculator = () => {
   const [birthdate, setBirthdate] = useState('');
-  const [age, setAge] = useState('');
+  const [age, setAge] = useState(null);
+  const [error, setError] = useState('');
+
 
   const calculateAge = () => {
-    const today = new Date();
+    if (!birthdate) {
+      setError('Please enter your birthdate');
+      return;
+    }
 
+    const today = new Date();
     const birthDate = new Date(birthdate);
 
-    const ageInMilliseconds = today - birthDate;
-    const ageInYears = (birthdate && birthdate > new Date()) ? `Your age is: ${Math.floor(ageInMilliseconds / (365.25 * 24 * 60 * 60 * 1000))} years` : "Please enter a valid date";
+    if (isNaN(birthDate.getTime())) {
+      setError('Invalid date format. Please enter a valid date.');
+      return;
+    }
 
-    setAge(ageInYears);
+    if(birthDate.getTime()>=new Date().getTime()){
+      setError('Birthdate can not be a future or current date.');
+      return;
+    }
+
+    const ageInMilliseconds = today - birthDate;
+
+    const years = Math.floor(ageInMilliseconds / (365.25 * 24 * 60 * 60 * 1000));
+    setAge(years);
+    setError('');
+
   };
 
   return (
-    <div className="age-calculator">
-      <h2>Age Calculator</h2>
-      <div>
-        <label htmlFor="birthdate">Enter your birthdate:</label>
+    <div>
+      <h1>Age Calculator</h1>
+      <label>
+        Enter your birthdate:
         <input
           type="date"
-          id="birthdate"
           value={birthdate}
           onChange={(e) => setBirthdate(e.target.value)}
         />
-      </div>
+      </label>
       <button onClick={calculateAge}>Calculate Age</button>
-      {age && <p>{age}</p>}
+      {error && <p className="text-danger mt-2">{error}</p>}
+      {age !== null && <p>Your age is: {age} years</p>}
     </div>
   );
 };
