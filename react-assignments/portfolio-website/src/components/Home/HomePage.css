@@ -1,0 +1,23 @@
+.home-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+}
+
+.intro-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.projects-section {
+    margin-top: 40px;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+}
