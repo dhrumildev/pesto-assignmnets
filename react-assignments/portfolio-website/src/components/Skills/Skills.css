@@ -1,0 +1,19 @@
+.skills-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.skills-section {
+    margin-top: 20px;
+}
+
+.list-group-item {
+    background-color: #16a085;
+    /* Blue background color */
+    color: #ecf0f1;
+    /* Light gray text */
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,41 @@
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.contact-section {
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    /* Blue button color */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    /* Darker blue on hover */
+}
+
+.text-primary {
+    color: #3498db;
+    /* Blue text color */
+}
+
+.text-muted {
+    color: #7f8c8d;
+    /* Gray text color */
+}
+
+
+/* Additional styling for header and footer */
+
+header {
+    padding: 20px 0;
+}
+
+footer {
+    margin-top: 20px;
+}

@@ -1,0 +1,37 @@
+.project-details-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.jumbotron {
+    background-color: #2c3e50;
+    /* Dark blue background */
+    /* color: #ecf0f1; */
+    /* Light gray text */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid #3498db;
+    /* Border color for the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.jumbotron:hover {
+    transform: scale(1.02);
+}
+
+.jumbotron h1 {
+    color: #1abc9c;
+    /* Turquoise neon color */
+    text-shadow: 2px 2px 4px #16a085;
+    /* Darker shadow for text */
+}
+
+.jumbotron p {
+    border-top: 1px solid #3498db;
+    /* Border color for the text content */
+    padding-top: 15px;
+    /* Padding for spacing */
+}
