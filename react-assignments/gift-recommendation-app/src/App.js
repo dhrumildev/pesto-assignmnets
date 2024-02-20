@@ -26,7 +26,7 @@ const App = () => {
       }, {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer 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',
+          'Authorization': 'Bearer sk-',
         },
       });
       setRecommendations(response.data.recommendations);
