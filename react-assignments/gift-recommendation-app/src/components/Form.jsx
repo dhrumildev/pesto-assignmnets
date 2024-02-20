@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 
-const Form = ({ onFormSubmit }) => {
+const Form = React.memo(({ onFormSubmit }) => {
   const [age, setAge] = useState('');
   const [gender, setGender] = useState('');
   const [interests, setInterests] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add validation logic here if needed
     onFormSubmit({ age, gender, interests });
   };
 
@@ -28,6 +27,7 @@ const Form = ({ onFormSubmit }) => {
       <button type="submit">Submit</button>
     </form>
   );
-};
+
+});
 
 export default Form;

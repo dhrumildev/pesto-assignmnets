@@ -1,32 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import axios from 'axios';
 import Form from './components/Form';
-// import OpenAI from "openai";
-// const { Configuration, OpenAIApi } = require("openai");
-import OpenAI from "openai";
-
-// const openai = new OpenAI({ apiKey: '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' });
-
+const Recommendations = lazy(() => import('./components/Recommendations'));
 
 const App = () => {
-
-  // const configuration = new Configuration({
-  //   apiKey: "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",
-  // });
-  // const openai = new OpenAIApi(configuration);
-
   const [recommendations, setRecommendations] = useState([]);
 
   const fetchRecommendations = async (preferences) => {
     try {
-      const response = await axios.post('https://api.openai.com/v1/chat/completions', {
-        "model": "gpt-3.5-turbo",
-        "messages": [{ "role": "user", "content": "Say this is a test!" }],
-        "temperature": 0.7
-      }, {
+      const response = await axios.post('YOUR_OPENAI_API_ENDPOINT', preferences, {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer sk-',
+          'Authorization': 'Bearer YOUR_OPENAI_API_KEY',
         },
       });
       setRecommendations(response.data.recommendations);
@@ -39,7 +24,9 @@ const App = () => {
     <div>
       <h1>Gift Recommendation App</h1>
       <Form onFormSubmit={fetchRecommendations} />
-      {/* Display recommendations here */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Recommendations recommendations={recommendations} />
+      </Suspense>
     </div>
   );
 };
