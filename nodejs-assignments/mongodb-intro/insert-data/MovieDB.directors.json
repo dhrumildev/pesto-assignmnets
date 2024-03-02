@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "65e39cb72de0a85e9de70c1b"
+  },
+  "name": "Director1",
+  "nationality": "Nationality1",
+  "moviesDirected": [
+    "Movie1",
+    "Movie4"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65e39cb72de0a85e9de70c1c"
+  },
+  "name": "Director2",
+  "nationality": "Nationality2",
+  "moviesDirected": [
+    "Movie2",
+    "Movie5"
+  ]
+}]

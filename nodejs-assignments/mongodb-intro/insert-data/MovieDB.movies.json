@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "65e39c682de0a85e9de70c16"
+  },
+  "title": "Movie1",
+  "releaseYear": 2020,
+  "genre": "Action",
+  "director": "Director1",
+  "actors": [
+    "Actor1",
+    "Actor2"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65e39c682de0a85e9de70c17"
+  },
+  "title": "Movie2",
+  "releaseYear": 2019,
+  "genre": "Comedy",
+  "director": "Director2",
+  "actors": [
+    "Actor2",
+    "Actor3"
+  ]
+}]
